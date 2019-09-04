@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app>
+<head>
+<script src="js/angular.min.js"></script>
+<script src="js/func.js"></script>
+</head>
+<body>
+<div ng-controller="ContatoController">
+<form>
+<table>
+<tr>
+<td>Nome</td> 
+<td><input type="text" name="nome" ng-model="novocontato.nome"/></td>
+</tr>
+<tr>
+<td>Email</td>
+<td><input type="text" name="email" ng-model="novocontato.email"/></td>
+</tr>
+<tr>
+<td>Fone</td> 
+<td><input type="text" name="fone" ng-model="novocontato.fone"/></td>
+</tr>
+<tr>
+<td><input type="hidden" ng-model="novocontato.id" /></td>
+<td><input type="button" value="Salvar" ng-click="salvaContato()" /></td>
+</tr>
+</table>
+</form>
+<table border="1">
+<tr>
+<th>Nome</th>
+<th>Email</th>
+<th>Fone</th>
+<th>Ação</th>
+</tr>
+<tr ng-repeat="contato in contatos">
+<td>{{ contato.nome }}</td>
+<td>{{ contato.email }}</td>
+<td>{{ contato.fone }}</td>
+<td>
+<a href="#" ng-click="edita(contato.id)">edita</a> | 
+<a href="#" ng-click="deleta(contato.id)">deleta</a>
+</td>
+</tr>
+</table> 
+</div>
+</body>
+</html>
